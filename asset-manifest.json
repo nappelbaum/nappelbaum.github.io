@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/snowboard/static/css/main.46604e27.css",
+    "main.js": "/snowboard/static/js/main.e70b8511.js",
+    "static/media/BGfin.jpg": "/snowboard/static/media/BGfin.945f1a4db3579d1a82bb.jpg",
+    "index.html": "/snowboard/index.html",
+    "main.46604e27.css.map": "/snowboard/static/css/main.46604e27.css.map",
+    "main.e70b8511.js.map": "/snowboard/static/js/main.e70b8511.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46604e27.css",
+    "static/js/main.e70b8511.js"
+  ]
+}
