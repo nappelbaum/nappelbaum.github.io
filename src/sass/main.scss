@@ -1,0 +1,14 @@
+// Base
+
+@import "./base/vars";
+@import "./base/reset";
+@import "./base/base";
+@import "./base/mixins";
+
+// Blocks
+
+@import "./blocks/nav";
+@import "./blocks/header";
+@import "./blocks/category";
+@import "./blocks/skill";
+@import "./blocks/footer";
