@@ -23,7 +23,10 @@ const Skill = ({ category, text, href, src, skillRight }) => {
         </div>
       </div>
       <div className="skill__img">
-        <img src={src} alt="инструктор по сноуборду" />
+        <img
+          src={require(`./../img/Carts/${src}`)}
+          alt="инструктор по сноуборду"
+        />
       </div>
     </div>
   );
