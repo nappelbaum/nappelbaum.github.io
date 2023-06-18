@@ -24,7 +24,7 @@ const Nav = ({ navFix }) => {
             <span>+7 999 888-77-666</span>
           </a>
           <a href="#" className="nav__logo">
-            <img src="./../img/logo/snowboarding.png" alt="" />
+            <img src="/img/logo/snowboarding.png" alt="" />
           </a>
           <div
             className={`nav__burger${

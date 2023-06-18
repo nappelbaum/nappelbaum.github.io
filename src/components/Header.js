@@ -40,11 +40,11 @@ const Header = ({ changeNavFix }) => {
               onClick={onButtonClick}
             >
               <span>Погнали</span>
-              <img src="./../img/svg/curve-down-arrow.png" alt="Погнали" />
+              <img src="/img/svg/curve-down-arrow.png" alt="Погнали" />
             </button>
           </div>
           <div className="header__img">
-            <img src="./../img/main1.png" alt="инструктор по сноуборду" />
+            <img src="/img/main1.png" alt="инструктор по сноуборду" />
           </div>
         </div>
       </div>
