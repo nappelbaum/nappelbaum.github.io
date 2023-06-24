@@ -18,7 +18,9 @@ const Programs = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
   };
 
   useEffect(() => {
-    const url = catQuery ? "/snowboard/#/progs?" + catQuery : "/#/progs";
+    const url = catQuery
+      ? "/snowboard/#/progs?" + catQuery
+      : "/snowboard/#/progs";
     window.history.replaceState(null, null, url);
   }, [catQuery]);
 
