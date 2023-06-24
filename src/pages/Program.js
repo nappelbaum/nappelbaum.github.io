@@ -12,6 +12,7 @@ const Program = ({ changeNavFix, changeNavDarkColor }) => {
     changeNavDarkColor(true);
     changeBody(false);
     const locHref = window.location.search.slice(4);
+    console.log(window.location.search);
     programs.forEach((prog) => {
       if (prog.id === Number(locHref)) setChoiseProg(prog);
     });
