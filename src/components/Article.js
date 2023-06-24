@@ -37,7 +37,7 @@ const Article = ({ program, index, searchQuery }) => {
         ></div>
       </div>
       <Link
-        to={`/prog?id=${program.id}`}
+        to={`/snowboard/#/prog?id=${program.id}`}
         className="button articles__btn"
         onClick={() => window.scrollTo({ top: 0 })}
       >
