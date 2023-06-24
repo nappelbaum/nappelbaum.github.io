@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  HashRouter,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
 import Main from "./pages/Main";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
@@ -21,7 +26,7 @@ function App() {
 
   return (
     <div className="app">
-      <Router>
+      <HashRouter>
         <Nav navFix={navFix} navDarkColor={navDarkColor} />
         <Routes>
           <Route
@@ -83,7 +88,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
-      </Router>
+      </HashRouter>
     </div>
   );
 }
