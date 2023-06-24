@@ -25,7 +25,7 @@ function App() {
         <Nav navFix={navFix} navDarkColor={navDarkColor} />
         <Routes>
           <Route
-            path="/"
+            path="/snowboard/"
             element={
               <Main
                 dbSkills={dbSkills}
@@ -35,7 +35,7 @@ function App() {
             }
           />
           <Route
-            path="/about"
+            path="/snowboard/about"
             element={
               <About
                 changeNavFix={changeNavFix}
@@ -44,7 +44,7 @@ function App() {
             }
           />
           <Route
-            path="/progs"
+            path="/snowboard/progs"
             element={
               <Programs
                 dbSkills={dbSkills}
@@ -54,7 +54,7 @@ function App() {
             }
           />
           <Route
-            path="/prog"
+            path="/snowboard/prog"
             element={
               <Program
                 changeNavFix={changeNavFix}
@@ -63,7 +63,7 @@ function App() {
             }
           />
           <Route
-            path="/prices"
+            path="/snowboard/prices"
             element={
               <About
                 changeNavFix={changeNavFix}
@@ -72,7 +72,7 @@ function App() {
             }
           />
           <Route
-            path="/contacts"
+            path="/snowboard/contacts"
             element={
               <About
                 changeNavFix={changeNavFix}
