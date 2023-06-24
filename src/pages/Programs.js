@@ -18,7 +18,7 @@ const Programs = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
   };
 
   useEffect(() => {
-    const url = catQuery ? "progs?" + catQuery : "progs";
+    const url = catQuery ? "/#/progs?" + catQuery : "/#/progs";
     window.history.replaceState(null, null, url);
   }, [catQuery]);
 
