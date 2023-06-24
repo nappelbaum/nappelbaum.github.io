@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./../sass/main.scss";
 
 const Skill = ({ category, text, href, src, skillRight }) => {
@@ -17,8 +18,13 @@ const Skill = ({ category, text, href, src, skillRight }) => {
         >
           <p>{text}</p>
           <div className="skill__links">
-            <a href={href}>Подробнее о программе</a>
-            <a href="#">Записаться на занятие</a>
+            <NavLink
+              to={`/progs?${href}`}
+              onClick={() => window.scrollTo({ top: 0 })}
+            >
+              Подробнее о программе
+            </NavLink>
+            <a href="/contacts">Записаться на занятие</a>
           </div>
         </div>
       </div>

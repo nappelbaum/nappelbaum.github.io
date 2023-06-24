@@ -1,19 +1,21 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./../sass/main.scss";
 import { useInView } from "react-intersection-observer";
+import MyButton from "./UI/buttons/MyButton";
 
 const Header = ({ changeNavFix }) => {
-  const { ref, inView } = useInView({
+  const [active, setActive] = useState(false);
+  const { ref, inView, entry } = useInView({
     threshold: 0,
   });
 
   useEffect(() => {
-    changeNavFix(inView);
-  });
+    !entry ? setActive(false) : setActive(!inView);
+    changeNavFix(active);
+  }, [entry, inView, active, changeNavFix]);
 
   const btnScroll = useRef(null);
   const onButtonClick = () => {
-    // console.log(btnScroll.current);
     const btnScrollCoords = btnScroll.current.getBoundingClientRect();
     window.scrollTo({
       top:
@@ -23,7 +25,7 @@ const Header = ({ changeNavFix }) => {
   };
 
   return (
-    <header ref={ref} className={`header${inView ? "" : " header--margin"}`}>
+    <header ref={ref} className={`header${!active ? "" : " header--margin"}`}>
       <div className="container">
         <div className="header__row">
           <div className="header__text">
@@ -34,7 +36,7 @@ const Header = ({ changeNavFix }) => {
               Я ваш персональный <br />
               инструктор по сноуборду))
             </h1>
-            <button
+            <MyButton
               className="button header__btn"
               ref={btnScroll}
               onClick={onButtonClick}
@@ -44,7 +46,7 @@ const Header = ({ changeNavFix }) => {
                 src={require("./../img/svg/curve-down-arrow.png")}
                 alt="Погнали"
               />
-            </button>
+            </MyButton>
           </div>
           <div className="header__img">
             <img

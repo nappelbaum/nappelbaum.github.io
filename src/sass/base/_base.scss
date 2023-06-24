@@ -6,8 +6,8 @@ body {
   color: #fff;
 }
 
-body {
-  background-color: #eeeeee;
+.body-color-main {
+  background-color: #ececec;
   background-image: url(./../../img/BackGr/BGfin.jpg);
   background-position: center 0;
   background-repeat: no-repeat;
@@ -16,6 +16,24 @@ body {
   @media (min-width: 1600px) {
     background-size: 100% 437vh;
   }
+}
+
+.body-color-rest {
+  background-color: #ececec;
+  background-image: url(./../../img/BackGr/newBG1.jpg);
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: 100%;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -58,4 +76,21 @@ body {
 
 body.lock {
   overflow: hidden;
+}
+
+.new-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url(./../../img/BackGr/newBG1.jpg);
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.new-background--hidden {
+  display: none;
 }

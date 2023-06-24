@@ -6,7 +6,7 @@ $minWidth: 320;
   $maxWidth: $maxWidth - $minWidth;
   font-size: calc(
     #{$mobSize + px} + #{$addSize} *
-      ((100vw - #{$minWidth + px}) / (#{$maxWidth} - #{$minWidth}))
+      ((100vw - #{$minWidth + px}) / (#{$maxWidth}))
   );
 }
 

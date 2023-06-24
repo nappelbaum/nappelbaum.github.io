@@ -35,6 +35,14 @@
   }
 }
 
+.nav--dark-color {
+  color: $text-color-dark;
+
+  svg path {
+    fill: $text-color-dark;
+  }
+}
+
 .nav__row {
   position: relative;
   display: flex;
@@ -50,6 +58,10 @@
       color: $accent-col;
       font-weight: 600;
     }
+  }
+
+  .current-page {
+    color: $accent-col;
   }
 }
 
@@ -151,6 +163,16 @@
   }
 }
 
+.nav__burger--dark {
+  span {
+    background-color: $text-color-dark;
+  }
+  &::before,
+  &::after {
+    background-color: $text-color-dark;
+  }
+}
+
 .nav__navigation-list {
   ul {
     display: flex;
@@ -212,6 +234,11 @@
 
 .nav__navigation-list--active {
   right: 0;
+}
+.nav__navigation-list--dark {
+  @media (max-width: 1025px) {
+    background-color: rgba(132, 136, 212, 0.97);
+  }
 }
 
 .overlay {

@@ -1,0 +1,29 @@
+.about__h1 {
+  text-align: center;
+  font-size: 22px;
+  color: $text-color-dark;
+  margin: 30px auto;
+}
+
+.about__img {
+  display: block;
+  height: 200px;
+  margin: 30px auto;
+}
+
+.about__links {
+  text-align: center;
+  margin: 30px auto;
+  color: $text-color-dark;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.5;
+
+  a {
+    color: $prog-accent-col;
+
+    &:hover {
+      color: #9e7c00;
+    }
+  }
+}

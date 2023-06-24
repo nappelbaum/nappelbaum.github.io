@@ -1,23 +1,89 @@
 import React, { useState } from "react";
-// import "./sass/main.scss";
-import Nav from "./components/Nav";
-import Header from "./components/Header";
-import Skills from "./components/Skills";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Main from "./pages/Main";
+import Programs from "./pages/Programs";
+import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import dbSkills from "./data/DbSkills";
+import Nav from "./components/Nav";
+import Program from "./pages/Program";
 
 function App() {
-  const [navFix, setNavFix] = useState(true);
+  const [navFix, setNavFix] = useState(false);
+  const [navDarkColor, setNavDarkColor] = useState(false);
   const changeNavFix = (newNav) => {
     setNavFix(newNav);
   };
+  const changeNavDarkColor = (newNav) => {
+    setNavDarkColor(newNav);
+  };
 
   return (
-    <div>
-      <Nav navFix={navFix} />
-      <Header changeNavFix={changeNavFix} />
-      <Skills skills={dbSkills} />
-      <Footer />
+    <div className="app">
+      <Router>
+        <Nav navFix={navFix} navDarkColor={navDarkColor} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Main
+                dbSkills={dbSkills}
+                changeNavFix={changeNavFix}
+                changeNavDarkColor={changeNavDarkColor}
+              />
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <About
+                changeNavFix={changeNavFix}
+                changeNavDarkColor={changeNavDarkColor}
+              />
+            }
+          />
+          <Route
+            path="/progs"
+            element={
+              <Programs
+                dbSkills={dbSkills}
+                changeNavFix={changeNavFix}
+                changeNavDarkColor={changeNavDarkColor}
+              />
+            }
+          />
+          <Route
+            path="/prog"
+            element={
+              <Program
+                changeNavFix={changeNavFix}
+                changeNavDarkColor={changeNavDarkColor}
+              />
+            }
+          />
+          <Route
+            path="/prices"
+            element={
+              <About
+                changeNavFix={changeNavFix}
+                changeNavDarkColor={changeNavDarkColor}
+              />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <About
+                changeNavFix={changeNavFix}
+                changeNavDarkColor={changeNavDarkColor}
+              />
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }
