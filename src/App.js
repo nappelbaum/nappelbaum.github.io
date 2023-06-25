@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { Route, BrowserRouter as HashRouter, Routes } from "react-router-dom";
+import {
+  HashRouter,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
 import Main from "./pages/Main";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
