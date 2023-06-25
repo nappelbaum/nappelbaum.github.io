@@ -56,13 +56,21 @@ const HeadProgs = ({
             value={catQuery}
             onChange={(e) => selectCatQuery(e.target.value)}
           />
-          <MyInput
-            className="search-input"
-            type="text"
-            placeholder="Поиск..."
-            value={searchQuery}
-            onChange={(e) => inputSearchQuery(e.target.value)}
-          />
+          <form
+            className="search-form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              e.target.scrollIntoView({ block: "start", behavior: "smooth" });
+            }}
+          >
+            <MyInput
+              className="search-input"
+              type="text"
+              placeholder="Поиск..."
+              value={searchQuery}
+              onChange={(e) => inputSearchQuery(e.target.value)}
+            />
+          </form>
         </div>
         <div
           className={

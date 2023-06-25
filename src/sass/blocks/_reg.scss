@@ -1,0 +1,39 @@
+.reg {
+  margin-top: calc(30vh * 0.12674);
+  margin-bottom: calc(50vh * 0.12674);
+  color: $text-color-dark;
+}
+
+.reg__header {
+  .category {
+    font-weight: 500;
+    padding-left: 42px;
+  }
+  .category::before {
+    width: 30px;
+    background-color: $text-color-dark;
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.reg__header__title {
+  margin-top: calc(20vh * 0.12674);
+  margin-bottom: calc(20vh * 0.12674);
+  font-weight: 600;
+  @include universal(24, 20, font-size);
+  line-height: 1.36;
+
+  text-align: center;
+}
+
+.reg__tel,
+.reg__date {
+  font-weight: 500;
+  margin-bottom: calc(12vh * 0.12674);
+
+  text-align: center;
+}

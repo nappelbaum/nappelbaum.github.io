@@ -59,7 +59,7 @@
 .head-progs__title {
   margin-top: calc(20vh * 0.12674);
   font-weight: 600;
-  @include universal(36, 24, font-size);
+  @include universal(34, 24, font-size);
   line-height: 1.36;
 
   @media (max-width: 600px) {
@@ -107,8 +107,16 @@
 }
 
 .cat-select,
-.search-input {
+.search-form {
   flex: 0 1 50%;
+  @media (max-width: 600px) {
+    margin-bottom: calc(10vh * 0.12674);
+    width: 100%;
+  }
+}
+
+.cat-select,
+.search-input {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -119,11 +127,10 @@
   padding: calc(8vh * 0.12674) calc(20vw * 0.0625);
   background: transparent;
   outline: none;
+}
 
-  @media (max-width: 600px) {
-    margin-bottom: calc(10vh * 0.12674);
-    width: 100%;
-  }
+.search-input {
+  width: 100%;
 }
 
 .cat-select::-ms-expand {

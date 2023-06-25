@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  HashRouter,
-  Route,
-  BrowserRouter as Router,
-  Routes,
-} from "react-router-dom";
+import { Route, BrowserRouter as HashRouter, Routes } from "react-router-dom";
 import Main from "./pages/Main";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
@@ -13,6 +8,7 @@ import Footer from "./components/Footer";
 import dbSkills from "./data/DbSkills";
 import Nav from "./components/Nav";
 import Program from "./pages/Program";
+import Reg from "./pages/Reg";
 
 function App() {
   const [navFix, setNavFix] = useState(false);
@@ -23,6 +19,8 @@ function App() {
   const changeNavDarkColor = (newNav) => {
     setNavDarkColor(newNav);
   };
+
+  // HashRouter
 
   return (
     <div className="app">
@@ -77,9 +75,9 @@ function App() {
             }
           />
           <Route
-            path="/contacts"
+            path="/reg"
             element={
-              <About
+              <Reg
                 changeNavFix={changeNavFix}
                 changeNavDarkColor={changeNavDarkColor}
               />

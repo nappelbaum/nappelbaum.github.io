@@ -56,8 +56,13 @@
   margin-bottom: calc(60vh * 0.12674);
   color: $text-color-dark;
 
+  .category::before {
+    background-color: $text-color-dark;
+  }
+
   h1 {
     font-size: 18px;
+    margin-top: calc(22vh * 0.12674);
     margin-bottom: calc(22vh * 0.12674);
   }
   div {

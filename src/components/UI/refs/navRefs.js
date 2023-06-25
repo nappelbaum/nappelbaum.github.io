@@ -3,7 +3,7 @@ const navRefs = [
   { href: "/about", name: "Обо мне" },
   { href: "/progs", name: "Программы" },
   { href: "/prices", name: "Цены" },
-  { href: "/contacts", name: "Запись" },
+  { href: "/reg", name: "Запись" },
 ];
 
 export default navRefs;

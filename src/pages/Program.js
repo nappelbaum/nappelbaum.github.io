@@ -25,6 +25,7 @@ const Program = ({ changeNavFix, changeNavDarkColor }) => {
   return (
     <div className="program">
       <div className="container">
+        <div className="category">your snowboard guide</div>
         <h1>{choiseProg.name}</h1>
         <div>
           {progText.map((el) => (
