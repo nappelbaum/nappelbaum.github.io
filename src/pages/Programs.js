@@ -3,10 +3,14 @@ import HeadProgs from "../components/HeadProgs";
 import Articles from "../components/Articles";
 import cutProgs from "./../data/cutProgs";
 import changeBody from "../func/changeBody";
+import { useSearchParams } from "react-router-dom";
 
 const Programs = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [catQuery, setCatQuery] = useState(window.location.search.substring(1));
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [catQuery, setCatQuery] = useState(
+    searchParams.get("cat") ? searchParams.get("cat") : ""
+  );
 
   useEffect(() => {
     changeNavDarkColor(true);
@@ -18,10 +22,7 @@ const Programs = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
   };
 
   useEffect(() => {
-    const url = catQuery
-      ? "/snowboard/#/progs?" + catQuery
-      : "/snowboard/#/progs";
-    window.history.replaceState(null, null, url);
+    catQuery ? setSearchParams({ cat: catQuery }) : setSearchParams({});
   }, [catQuery]);
 
   const inputSearchQuery = function (input) {

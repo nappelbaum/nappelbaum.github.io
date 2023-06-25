@@ -1,18 +1,18 @@
 import React, { useEffect, useMemo, useState } from "react";
 import programs from "./../data/programs";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import changeBody from "../func/changeBody";
 
 const Program = ({ changeNavFix, changeNavDarkColor }) => {
   const [choiseProg, setChoiseProg] = useState({});
   const [progText, setProgText] = useState([]);
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     changeNavFix(false);
     changeNavDarkColor(true);
     changeBody(false);
-    const locHref = window.location.search.slice(4);
-    console.log(window.location.search);
+    const locHref = searchParams.get("id");
     programs.forEach((prog) => {
       if (prog.id === Number(locHref)) setChoiseProg(prog);
     });

@@ -19,7 +19,7 @@ const Skill = ({ category, text, href, src, skillRight }) => {
           <p>{text}</p>
           <div className="skill__links">
             <NavLink
-              to={`/progs?${href}`}
+              to={`/progs?cat=${href}`}
               onClick={() => window.scrollTo({ top: 0 })}
             >
               Подробнее о программе
