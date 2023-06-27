@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/snowboard/static/css/main.57dc1c07.css",
-    "main.js": "/snowboard/static/js/main.ac11a136.js",
+    "main.css": "/snowboard/static/css/main.7d2e94da.css",
+    "main.js": "/snowboard/static/js/main.ec13826e.js",
     "static/media/BGfin.jpg": "/snowboard/static/media/BGfin.945f1a4db3579d1a82bb.jpg",
     "static/media/6_group.jpg": "/snowboard/static/media/6_group.27f54e6defc224e5fc5b.jpg",
     "static/media/main1.png": "/snowboard/static/media/main1.994bac0d17c0018a79e2.png",
     "static/media/2_continue.jpg": "/snowboard/static/media/2_continue.bca8d46a3d012d96cc82.jpg",
+    "static/media/fon2.jpg": "/snowboard/static/media/fon2.238765a8aeb6909e7da0.jpg",
     "static/media/4_carving.jpg": "/snowboard/static/media/4_carving.f255e78be5e1cd5183e8.jpg",
     "static/media/newBG1.jpg": "/snowboard/static/media/newBG1.8b6a5517ba532c866304.jpg",
     "static/media/5_child.jpg": "/snowboard/static/media/5_child.ed1685c46f77c617e0e6.jpg",
     "static/media/1_begin.jpg": "/snowboard/static/media/1_begin.3246fb103437817e59b2.jpg",
+    "static/media/loading_icon.gif": "/snowboard/static/media/loading_icon.a1a996746e5e48352c81.gif",
     "static/media/3_freestyle.jpg": "/snowboard/static/media/3_freestyle.1011a0d253f44ccfe862.jpg",
     "static/media/cat.jpg": "/snowboard/static/media/cat.2e054ee6494e891f5eb6.jpg",
     "static/media/main3.png": "/snowboard/static/media/main3.4fd69fe4bd883fa09077.png",
     "static/media/snowboarding.png": "/snowboard/static/media/snowboarding.36cfc80e6654a045b720.png",
     "index.html": "/snowboard/index.html",
-    "main.57dc1c07.css.map": "/snowboard/static/css/main.57dc1c07.css.map",
-    "main.ac11a136.js.map": "/snowboard/static/js/main.ac11a136.js.map"
+    "main.7d2e94da.css.map": "/snowboard/static/css/main.7d2e94da.css.map",
+    "main.ec13826e.js.map": "/snowboard/static/js/main.ec13826e.js.map"
   },
   "entrypoints": [
-    "static/css/main.57dc1c07.css",
-    "static/js/main.ac11a136.js"
+    "static/css/main.7d2e94da.css",
+    "static/js/main.ec13826e.js"
   ]
 }
