@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import MySelect from "./UI/select/MySelect";
+
 import MyInput from "./UI/input/MyInput";
 import { useInView } from "react-intersection-observer";
+import SelectStyle from "./UI/select/SelectStyle";
 
 const HeadProgs = ({
   dbSkills,
@@ -49,12 +50,13 @@ const HeadProgs = ({
           </div>
         </div>
         <div className="select-input-row">
-          <MySelect
+          <SelectStyle
             className="cat-select"
             defaultval="Все категории..."
             options={dbSkills}
-            value={catQuery}
-            onChange={(e) => selectCatQuery(e.target.value)}
+            catQuery={catQuery}
+            selectCatQuery={selectCatQuery}
+            catCaption={catCaption}
           />
           <form
             className="search-form"

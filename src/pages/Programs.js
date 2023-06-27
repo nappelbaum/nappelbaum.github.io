@@ -1,43 +1,58 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import HeadProgs from "../components/HeadProgs";
 import Articles from "../components/Articles";
-import cutProgs from "./../data/cutProgs";
+import cutProgsFunc from "./../data/cutProgs";
 import changeBody from "../func/changeBody";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import Loader from "../components/UI/loader/Loader";
+import PostService from "../API/PostService";
+import { useFetching } from "../hooks/useFetching";
 
 const Programs = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
+  const [cutProgs, setCutProgs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [catQuery, setCatQuery] = useState(
     searchParams.get("cat") ? searchParams.get("cat") : ""
   );
+  const navigate = useNavigate();
+  const [fetchPrograms, isProgsLoading, progsError] = useFetching(async () => {
+    const res = await PostService.getAll();
+    setCutProgs(cutProgsFunc(res));
+  });
+
+  useEffect(() => {
+    fetchPrograms();
+  }, []);
+
+  const selectCatQuery = function (select) {
+    setCatQuery(select);
+  };
+
+  const inputSearchQuery = function (input) {
+    setSearchQuery(input);
+  };
 
   useEffect(() => {
     changeNavDarkColor(true);
     changeBody(false);
   }, [changeNavDarkColor]);
 
-  const selectCatQuery = function (select) {
-    setCatQuery(select);
-  };
-
   useEffect(() => {
-    catQuery ? setSearchParams({ cat: catQuery }) : setSearchParams({});
-  }, [catQuery]);
+    if (searchParams.get("cat")) navigate("/progs", { replace: true });
+  }, []);
 
-  const inputSearchQuery = function (input) {
-    setSearchQuery(input);
-  };
+  const cutSelectProgs = useMemo(() => {
+    return cutProgs.filter((prog) => prog.category.includes(catQuery));
+  }, [catQuery, cutProgs]);
 
-  const cutSelectProgs = cutProgs.filter((prog) =>
-    prog.category.includes(catQuery)
-  );
-
-  const cutSelectFilterProgs = cutSelectProgs.filter(
-    (prog) =>
-      prog.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      prog.text.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const cutSelectFilterProgs = useMemo(() => {
+    return cutSelectProgs.filter(
+      (prog) =>
+        prog.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        prog.text.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery, cutSelectProgs]);
 
   return (
     <div>
@@ -49,7 +64,16 @@ const Programs = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
         inputSearchQuery={inputSearchQuery}
         changeNavFix={changeNavFix}
       />
-      <Articles programs={cutSelectFilterProgs} searchQuery={searchQuery} />
+      {progsError && (
+        <h1 style={{ color: "#000" }}>
+          Произошла ошибка. Статьи не найдены! ${progsError}
+        </h1>
+      )}
+      {isProgsLoading ? (
+        <Loader />
+      ) : (
+        <Articles programs={cutSelectFilterProgs} searchQuery={searchQuery} />
+      )}
     </div>
   );
 };

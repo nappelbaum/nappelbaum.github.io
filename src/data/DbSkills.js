@@ -10,7 +10,7 @@ const dbSkills = [
   {
     id: 2,
     category: "совершенствование техники",
-    cat: "Для совершенствующихся",
+    cat: "Для продолжающих",
     text: "2Lorem ipsum dolor sit amet consectetur. Purus pulvinar nulla enim ut consequat nunc aliquam cursus. Risus mi viverra dolor at sagittis et ultrices. Consectetur etiam adipiscing mauris ut quisque eu velit convallis amet. Et sit velit malesuada hendrerit. Id ipsum convallis donecvitae. Sed pellentesque leo lacus odio quam lacinia praesent feugiat at. Semper sit urna augue pellentesque scelerisque vel. Magna erat in faucibus pulvinar consequat tempor. Ut feugiat id turpis adipiscing lorem tempor odio.",
     href: "continue",
     src: "2_continue.jpg",

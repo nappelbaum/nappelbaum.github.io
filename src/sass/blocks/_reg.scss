@@ -1,10 +1,30 @@
 .reg {
-  margin-top: calc(30vh * 0.12674);
-  margin-bottom: calc(50vh * 0.12674);
+  margin-top: calc(65vh * 0.12674);
+  margin-bottom: calc(60vh * 0.12674);
   color: $text-color-dark;
 }
 
+.reg__row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reg__img {
+  width: calc(300vw * 0.0625);
+
+  img {
+    width: 100%;
+    opacity: 0.8;
+  }
+}
+
 .reg__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 calc(40vw * 0.0625);
+
   .category {
     font-weight: 500;
     padding-left: 42px;
@@ -13,11 +33,6 @@
     width: 30px;
     background-color: $text-color-dark;
   }
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
 }
 
 .reg__header__title {

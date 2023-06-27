@@ -78,3 +78,10 @@
     }
   }
 }
+
+.loader {
+  margin-top: calc(50vh * 0.12674);
+  margin-bottom: calc(50vh * 0.12674);
+  height: 50px;
+  background: url(./../../img/svg/loading_icon.gif) center / 50px no-repeat;
+}

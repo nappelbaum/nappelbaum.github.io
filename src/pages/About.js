@@ -10,7 +10,7 @@ const About = ({ changeNavFix, changeNavDarkColor }) => {
   }, [changeNavFix, changeNavDarkColor]);
 
   return (
-    <div>
+    <div className="about">
       <div className="container">
         <h1 className="about__h1">Здесь пока ничего нет</h1>
         <img
