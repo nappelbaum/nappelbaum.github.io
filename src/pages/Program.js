@@ -10,11 +10,8 @@ const Program = ({ changeNavFix, changeNavDarkColor }) => {
   const [progText, setProgText] = useState([]);
   const [searchParams] = useSearchParams();
   const [fetchPrograms, isProgsLoading, progsError] = useFetching(async () => {
-    const res = await PostService.getAll();
-    const locHref = searchParams.get("id");
-    res.forEach((prog) => {
-      if (prog.id === locHref) setChoiseProg(prog);
-    });
+    const res = await PostService.getProg(searchParams.get("id"));
+    setChoiseProg(res);
   });
 
   useEffect(() => {
@@ -28,14 +25,15 @@ const Program = ({ changeNavFix, changeNavDarkColor }) => {
   }, [changeNavFix, changeNavDarkColor]);
 
   useMemo(() => {
-    if (choiseProg.text) setProgText(choiseProg.text.split("<br>"));
+    if (choiseProg.text) setProgText(choiseProg.text.split("\n"));
   }, [choiseProg]);
 
   return (
     <div className="program">
       {progsError && (
         <h1 style={{ color: "#000" }}>
-          Произошла ошибка. Статьи не найдены! ${progsError}
+          Произошла ошибка. Статья не найдена! База данных временно не доступна!
+          ${progsError}
         </h1>
       )}
       {isProgsLoading ? (
@@ -45,12 +43,20 @@ const Program = ({ changeNavFix, changeNavDarkColor }) => {
           <div className="category">your snowboard guide</div>
           <h1>{choiseProg.name}</h1>
           <div>
-            {progText.map((el) => (
-              <p key={el}>{el}</p>
+            {progText.map((el, index) => (
+              <p key={`p_${index}`} style={{ marginBottom: "10px" }}>
+                {el}
+              </p>
             ))}
           </div>
-          <Link to={choiseProg.href}>
+          <Link to={choiseProg.href} target="_blank">
             {choiseProg.href ? "Ссылка на внешний источник" : ""}
+          </Link>
+          <Link
+            className="button articles__btn edit__btn"
+            to={`/admin?id=${choiseProg.id}`}
+          >
+            Edit
           </Link>
         </div>
       )}

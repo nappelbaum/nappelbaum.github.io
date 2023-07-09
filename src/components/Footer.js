@@ -21,7 +21,7 @@ const Footer = () => {
           <span>+7 999 888-77-666</span>
         </div>
         <div className="footer__social">
-          <a href="#">
+          <a href="/">
             <svg
               width="26"
               height="26"
@@ -42,7 +42,7 @@ const Footer = () => {
               </defs>
             </svg>
           </a>
-          <a href="#">
+          <a href="/">
             <svg
               width="32"
               height="32"
@@ -56,7 +56,7 @@ const Footer = () => {
               />
             </svg>
           </a>
-          <a href="#">
+          <a href="/">
             <svg
               width="33"
               height="32"

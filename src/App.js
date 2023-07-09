@@ -1,19 +1,9 @@
 import React, { useState } from "react";
-import {
-  HashRouter,
-  Route,
-  BrowserRouter as Router,
-  Routes,
-} from "react-router-dom";
-import Main from "./pages/Main";
-import Programs from "./pages/Programs";
-import About from "./pages/About";
-import NotFound from "./pages/NotFound";
-import Footer from "./components/Footer";
-import dbSkills from "./data/DbSkills";
+import { BrowserRouter as Router } from "react-router-dom";
 import Nav from "./components/Nav";
-import Program from "./pages/Program";
-import Reg from "./pages/Reg";
+import Footer from "./components/Footer";
+import AppRouter from "./components/AppRouter";
+import dbSkills from "./data/DbSkills";
 
 function App() {
   const [navFix, setNavFix] = useState(false);
@@ -29,69 +19,15 @@ function App() {
 
   return (
     <div className="app">
-      <HashRouter>
+      <Router>
         <Nav navFix={navFix} navDarkColor={navDarkColor} />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Main
-                dbSkills={dbSkills}
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <About
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
-          <Route
-            path="/progs"
-            element={
-              <Programs
-                dbSkills={dbSkills}
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
-          <Route
-            path="/prog"
-            element={
-              <Program
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
-          <Route
-            path="/prices"
-            element={
-              <About
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
-          <Route
-            path="/reg"
-            element={
-              <Reg
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppRouter
+          dbSkills={dbSkills}
+          changeNavFix={changeNavFix}
+          changeNavDarkColor={changeNavDarkColor}
+        />
         <Footer />
-      </HashRouter>
+      </Router>
     </div>
   );
 }

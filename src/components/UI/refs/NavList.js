@@ -14,6 +14,7 @@ const NavList = ({ burgerStyles, navDarkColor, changeBurgerStyle }) => {
           <NavRef
             refName={ref.name}
             refHref={ref.href}
+            subhref={ref.subhref}
             key={ref.name}
             changeBurgerStyle={changeBurgerStyle}
           />

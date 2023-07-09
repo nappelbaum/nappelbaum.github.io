@@ -19,7 +19,7 @@ const Header = ({ changeNavFix }) => {
     const btnScrollCoords = btnScroll.current.getBoundingClientRect();
     window.scrollTo({
       top:
-        btnScrollCoords.top + window.pageYOffset + btnScrollCoords.height + 70,
+        btnScrollCoords.top + window.pageYOffset + btnScrollCoords.height + 90,
       behavior: "smooth",
     });
   };

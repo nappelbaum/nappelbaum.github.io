@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import changeBody from "../func/changeBody";
+import { Link } from "react-router-dom";
 
 const Reg = ({ changeNavFix, changeNavDarkColor }) => {
   useEffect(() => {
@@ -26,6 +27,9 @@ const Reg = ({ changeNavFix, changeNavDarkColor }) => {
             <div className="reg__date">
               ...или выберите дату и время прямо здесь:
             </div>
+            <Link to="/registr" className="button articles__btn">
+              Мои записи
+            </Link>
           </div>
           <div className="reg__img">
             <img src={require("./../img/fon2.jpg")} alt="Snowboard" />

@@ -40,7 +40,7 @@ const Programs = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
 
   useEffect(() => {
     if (searchParams.get("cat")) navigate("/progs", { replace: true });
-  }, []);
+  }, [navigate, searchParams]);
 
   const cutSelectProgs = useMemo(() => {
     return cutProgs.filter((prog) => prog.category.includes(catQuery));
@@ -66,7 +66,8 @@ const Programs = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
       />
       {progsError && (
         <h1 style={{ color: "#000" }}>
-          Произошла ошибка. Статьи не найдены! ${progsError}
+          Произошла ошибка. Статьи не найдены! База данных временно не доступна!
+          ${progsError}
         </h1>
       )}
       {isProgsLoading ? (

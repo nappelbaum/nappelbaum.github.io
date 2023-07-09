@@ -1,13 +1,17 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
-const NavRef = ({ refName, refHref, changeBurgerStyle }) => {
+const NavRef = ({ refName, refHref, subhref, changeBurgerStyle }) => {
+  const location = useLocation();
+
   return (
     <li>
       <NavLink
         to={refHref}
         className={({ isActive }) =>
-          isActive ? "current-page" : "no-active-page"
+          isActive || location.pathname === subhref
+            ? "current-page"
+            : "no-active-page"
         }
         onClick={() => {
           changeBurgerStyle(false);

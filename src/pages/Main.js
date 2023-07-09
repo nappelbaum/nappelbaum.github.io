@@ -23,12 +23,6 @@ import changeBody from "../func/changeBody";
 // }
 // clickHadler();
 
-// async function fetchProg() {
-//   const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-//   console.log(res);
-// }
-// fetchProg();
-
 function Main({ dbSkills, changeNavFix, changeNavDarkColor }) {
   useEffect(() => {
     changeNavDarkColor(false);

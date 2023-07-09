@@ -3,7 +3,7 @@ const cutProgsFunc = function (programs) {
 
   const cutProgs = progsTmp.map((program) => {
     const textLength = 170;
-    const text = program.text.split("<br>");
+    const text = program.text.split("\n");
     const textCut = text[0].slice(0, textLength);
     let textArr = textCut.split(" ");
     if (textCut.length === textLength) {

@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const About = ({ changeNavFix, changeNavDarkColor }) => {
   useEffect(() => {
-    changeNavFix(false);
     changeNavDarkColor(true);
     changeBody(false);
-  }, [changeNavFix, changeNavDarkColor]);
+    changeNavFix(false);
+  }, [changeNavDarkColor, changeNavFix]);
 
   return (
     <div className="about">
@@ -20,7 +20,8 @@ const About = ({ changeNavFix, changeNavDarkColor }) => {
         />
         <div className="about__links">
           Доступны разделы: <br />
-          <Link to="/">Главная</Link>, <Link to="/progs">Программы</Link>
+          <Link to="/">Главная</Link>, <Link to="/progs">Программы</Link>,{" "}
+          <Link to="/reg">Запись</Link>
         </div>
       </div>
     </div>
