@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter, BrowserRouter as Router } from "react-router-dom";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import AppRouter from "./components/AppRouter";
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="app">
-      <Router>
+      <HashRouter>
         <Nav navFix={navFix} navDarkColor={navDarkColor} />
         <AppRouter
           dbSkills={dbSkills}
@@ -27,7 +27,7 @@ function App() {
           changeNavDarkColor={changeNavDarkColor}
         />
         <Footer />
-      </Router>
+      </HashRouter>
     </div>
   );
 }
