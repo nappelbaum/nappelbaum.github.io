@@ -28,7 +28,7 @@ const Login = ({ changeNavDarkColor }) => {
 
   const changeCookie = (id) => {
     setCookie("snowid", id, {
-      path: "/",
+      path: "/snowboard",
       expires: d,
     });
   };
