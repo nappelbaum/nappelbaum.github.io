@@ -143,7 +143,9 @@ const Registr = ({ changeNavFix, changeNavDarkColor }) => {
               className="button articles__btn reg__btn"
               onClick={() =>
                 signout(() => {
-                  removeCookie("snowid");
+                  removeCookie("snowid", {
+                    path: "/",
+                  });
                   navigate("/reg", { replace: true });
                 })
               }
