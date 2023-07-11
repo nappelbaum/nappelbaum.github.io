@@ -21,6 +21,8 @@ const RegModal = ({
     setYouSign(true);
     const formData = new FormData(e.target);
     formData.append("id", idDateTime.id);
+    formData.append("id", idDateTime.date);
+    formData.append("id", idDateTime.time);
     formData.append("user_id", user.id);
     formData.append("login", user.login);
     formData.append("phone", user.phone);
