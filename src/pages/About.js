@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import changeBody from "../func/changeBody";
 import { Link } from "react-router-dom";
+import AudioPlayer from "../components/AudioPlayer";
 
 const About = ({ changeNavFix, changeNavDarkColor }) => {
   useEffect(() => {
@@ -18,6 +19,7 @@ const About = ({ changeNavFix, changeNavDarkColor }) => {
           src={require("./../img/cat.jpg")}
           alt="инструктор по сноуборду"
         />
+        <AudioPlayer />
         <div className="about__links">
           Доступны разделы: <br />
           <Link to="/">Главная</Link>, <Link to="/progs">Программы</Link>,{" "}

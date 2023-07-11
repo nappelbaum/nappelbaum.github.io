@@ -1,6 +1,10 @@
 .about {
   margin-top: calc(40vh * 0.12674);
   margin-bottom: calc(50vh * 0.12674);
+
+  @media (max-width: 1025px) {
+    margin-top: 0;
+  }
 }
 
 .about__h1 {
@@ -12,8 +16,11 @@
 
 .about__img {
   display: block;
-  height: 200px;
+  height: 215px;
   margin: 30px auto;
+  border-radius: 50%;
+  border: 7px solid #f1eaea;
+  box-shadow: 0 0 15px 5px #adadad;
 }
 
 .about__links {
