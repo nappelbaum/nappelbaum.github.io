@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/snowboard/static/css/main.f0a085a5.css",
-    "main.js": "/snowboard/static/js/main.0f56a74f.js",
+    "main.css": "/snowboard/static/css/main.54ea5cd6.css",
+    "main.js": "/snowboard/static/js/main.f3e6fa39.js",
     "static/media/Landyshi_-_Snoubordist.mp3": "/snowboard/static/media/Landyshi_-_Snoubordist.8fca5a20a60b0cdd67a6.mp3",
     "static/media/BGfin.jpg": "/snowboard/static/media/BGfin.945f1a4db3579d1a82bb.jpg",
     "static/media/6_group.jpg": "/snowboard/static/media/6_group.27f54e6defc224e5fc5b.jpg",
@@ -12,17 +12,17 @@
     "static/media/newBG1.jpg": "/snowboard/static/media/newBG1.8b6a5517ba532c866304.jpg",
     "static/media/5_child.jpg": "/snowboard/static/media/5_child.ed1685c46f77c617e0e6.jpg",
     "static/media/1_begin.jpg": "/snowboard/static/media/1_begin.3246fb103437817e59b2.jpg",
+    "static/media/cat.jpg": "/snowboard/static/media/cat.abd7f46c33b29aabcc52.jpg",
     "static/media/loading_icon.gif": "/snowboard/static/media/loading_icon.a1a996746e5e48352c81.gif",
     "static/media/3_freestyle.jpg": "/snowboard/static/media/3_freestyle.1011a0d253f44ccfe862.jpg",
-    "static/media/cat.jpg": "/snowboard/static/media/cat.2e054ee6494e891f5eb6.jpg",
     "static/media/main3.png": "/snowboard/static/media/main3.4fd69fe4bd883fa09077.png",
     "static/media/snowboarding.png": "/snowboard/static/media/snowboarding.36cfc80e6654a045b720.png",
     "index.html": "/snowboard/index.html",
-    "main.f0a085a5.css.map": "/snowboard/static/css/main.f0a085a5.css.map",
-    "main.0f56a74f.js.map": "/snowboard/static/js/main.0f56a74f.js.map"
+    "main.54ea5cd6.css.map": "/snowboard/static/css/main.54ea5cd6.css.map",
+    "main.f3e6fa39.js.map": "/snowboard/static/js/main.f3e6fa39.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0a085a5.css",
-    "static/js/main.0f56a74f.js"
+    "static/css/main.54ea5cd6.css",
+    "static/js/main.f3e6fa39.js"
   ]
 }
