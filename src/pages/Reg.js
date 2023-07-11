@@ -27,7 +27,7 @@ const Reg = ({ changeNavFix, changeNavDarkColor }) => {
             <div className="reg__date">
               ...или выберите дату и время прямо здесь:
             </div>
-            <Link to="/registr" className="button articles__btn">
+            <Link to="/registr" className="button articles__btn reg__butn">
               Мои записи
             </Link>
           </div>

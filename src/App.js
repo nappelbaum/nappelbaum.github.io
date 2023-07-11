@@ -15,7 +15,8 @@ function App() {
     setNavDarkColor(newNav);
   };
 
-  // HashRouter
+  // for Git HashRouter instead Router
+  // + поменять login.js
 
   return (
     <div className="app">

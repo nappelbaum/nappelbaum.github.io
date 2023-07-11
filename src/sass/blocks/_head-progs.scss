@@ -100,9 +100,9 @@
   position: relative;
 }
 
-.cat-select:focus .select__title {
-  border: 2px solid $prog-accent-col;
-}
+// .cat-select:focus .select__title {
+//   border: 2px solid $prog-accent-col;
+// }
 
 .select__title {
   padding: 8px 20px;
@@ -110,10 +110,18 @@
   cursor: pointer;
   border: 1px solid $prog-accent-col;
   user-select: none;
+  outline: none;
 
   @media (max-width: 600px) {
     padding: 12px 20px;
   }
+}
+
+.select__title--focus {
+  border: 2px solid $prog-accent-col;
+}
+.select__title:focus {
+  border: 2px solid $prog-accent-col;
 }
 
 .select__content {
@@ -157,7 +165,12 @@
   max-height: 0;
   cursor: pointer;
   overflow: hidden;
+  outline: none;
   transition: all 0.2s ease-out;
+}
+
+.select__label:focus {
+  background-color: #bec2e2;
 }
 
 .search-input {

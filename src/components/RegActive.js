@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import MyButton from "./UI/buttons/MyButton";
 import useMyPostFething from "../hooks/useMyPostFething";
-import Loader from "./UI/loader/Loader";
 
 const RegActive = ({ activeDates, changeYouSign }) => {
   const [cancelOpen, setCancelOpen] = useState("");
+  const [blink, setBlink] = useState("");
   const [cancelDateError, setCancelDateError] = useState(false);
   const [fetchCancelDate] = useMyPostFething(
     "https://bohohome.ru/php/date/cancelDate.php",
@@ -16,14 +16,18 @@ const RegActive = ({ activeDates, changeYouSign }) => {
   };
 
   function cancelDate(res) {
-    if (res.data !== "Запись удалена!") setCancelDateError(true);
+    if (res.data !== "Запись удалена!") {
+      setCancelDateError(true);
+    }
     changeYouSign((prev) => !prev);
+    setBlink("");
   }
 
   const cancelClickDate = function (data) {
     const dateForClear = JSON.stringify(data);
     fetchCancelDate(dateForClear);
     setCancelOpen("");
+    setBlink(data.id);
   };
 
   return (
@@ -38,7 +42,12 @@ const RegActive = ({ activeDates, changeYouSign }) => {
       {activeDates.map(
         (date, index) =>
           index < 2 && (
-            <div key={date.id} className="registr__dates-col">
+            <div
+              key={date.id}
+              className={`registr__dates-col${
+                blink === date.id ? " registr__dates-col--blink" : ""
+              }`}
+            >
               <div className="registr__dates-row">
                 <div>
                   {`${date.date.toLocaleString("ru-RU", {

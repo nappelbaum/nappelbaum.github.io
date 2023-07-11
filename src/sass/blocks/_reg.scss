@@ -60,3 +60,10 @@
 .reg__date {
   margin-bottom: calc(25vh * 0.12674);
 }
+
+.reg__butn {
+  @media (max-width: 900px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

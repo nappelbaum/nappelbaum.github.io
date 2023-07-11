@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import MyButton from "./UI/buttons/MyButton";
 import axios from "axios";
+import Loader from "./UI/loader/Loader";
 
 const RegModal = ({
   activeModal,
@@ -11,26 +12,39 @@ const RegModal = ({
 }) => {
   const [youSign, setYouSign] = useState(false);
   const [captionDate, setCaptionDate] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const onSumbit = function (e) {
     e.preventDefault();
     e.target.classList.remove("reg-modal__form--anim");
+    setLoading(true);
+    setYouSign(true);
     const formData = new FormData(e.target);
     formData.append("id", idDateTime.id);
     formData.append("user_id", user.id);
+    formData.append("login", user.login);
+    formData.append("phone", user.phone);
     e.target.reset();
 
     axios
       .post("https://bohohome.ru/php/date/updateDate.php", formData)
       .then((res) => {
-        setYouSign(true);
         setCaptionDate(res.data);
         changeYouSign((prev) => !prev);
+        setLoading(false);
         setTimeout(() => {
           changeActiveModal(false, {});
           document.body.classList.remove("lock");
           setYouSign(false);
-        }, 2500);
+        }, 2800);
+
+        if (res.data === "Вы записаны!") {
+          axios
+            .post("https://bohohome.ru/php/email/sendReg.php", formData)
+            .then((res) => {
+              console.log(res.data);
+            });
+        }
       });
   };
 
@@ -73,8 +87,13 @@ const RegModal = ({
           />
         </label>
         {youSign && <div className="you-sign">{captionDate}</div>}
+        {loading && (
+          <div className="loader-wrapper">
+            <Loader />
+          </div>
+        )}
         <MyButton
-          className="button articles__btn login-form__btn"
+          className="button articles__btn login-form__btn modal-form__btn"
           type="submit"
           disabled={youSign}
         >

@@ -272,11 +272,28 @@
   position: static;
 }
 
+.modal-form__btn {
+  position: static;
+}
+
 @keyframes shake {
   0% {
     transform: translateY(-100vh);
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+.registr__dates-col--blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

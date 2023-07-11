@@ -94,3 +94,21 @@ body.lock {
 .new-background--hidden {
   display: none;
 }
+
+.loader-wrapper {
+  position: fixed;
+  top: 30vh;
+  left: 50vw;
+  width: 50px;
+  margin-left: -25px;
+}
+.loader-wrapper-stat {
+  width: 50px;
+}
+
+.loader {
+  margin-top: calc(50vh * 0.12674);
+  margin-bottom: calc(50vh * 0.12674);
+  height: 50px;
+  background: url(./../../img/svg/loading_icon.gif) center / 50px no-repeat;
+}

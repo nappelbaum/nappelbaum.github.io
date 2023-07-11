@@ -34,7 +34,6 @@ const Registr = ({ changeNavFix, changeNavDarkColor }) => {
   const changeActiveModal = (activeMod, time) => {
     setActiveModal(activeMod);
     setIdDateTime(time);
-    // document.body.classList.toggle("lock");
   };
 
   const changeYouSign = (sign) => {
@@ -101,7 +100,9 @@ const Registr = ({ changeNavFix, changeNavDarkColor }) => {
         </h1>
       )}
       {isDateLoading ? (
-        <Loader />
+        <div className="loader-wrapper">
+          <Loader />
+        </div>
       ) : (
         <div>
           <div className="container container__registr">
@@ -141,12 +142,12 @@ const Registr = ({ changeNavFix, changeNavDarkColor }) => {
             </div>
             <MyButton
               className="button articles__btn reg__btn"
-              onClick={() =>
+              onClick={() => {
+                removeCookie("snowid");
                 signout(() => {
-                  removeCookie("snowid");
                   navigate("/reg", { replace: true });
-                })
-              }
+                });
+              }}
             >
               Выйти из аккаунта
             </MyButton>

@@ -21,7 +21,13 @@ const RequireAuth = ({ children }) => {
       });
   }, []);
 
-  if (go === true) {
+  if (!go) {
+    return (
+      <div className="loader-wrapper">
+        <Loader />
+      </div>
+    );
+  } else {
     if (
       !user.login ||
       (location.pathname === "/admin" && user.access === "user")
@@ -36,8 +42,6 @@ const RequireAuth = ({ children }) => {
     }
 
     return children;
-  } else {
-    return <Loader />;
   }
 };
 
