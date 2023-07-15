@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/snowboard/static/css/main.19f666b3.css",
-    "main.js": "/snowboard/static/js/main.59cc24c8.js",
+    "main.css": "/snowboard/static/css/main.bd6ca3ee.css",
+    "main.js": "/snowboard/static/js/main.a62a62a4.js",
     "static/media/Guano_Apes_-_Lords_of_the_Boards.mp3": "/snowboard/static/media/Guano_Apes_-_Lords_of_the_Boards.3c2d548454f42c3bc279.mp3",
     "static/media/Anti-flag_-_the-press-corpse.mp3": "/snowboard/static/media/Anti-flag_-_the-press-corpse.183643b9229e9adcf191.mp3",
     "static/media/Landyshi_-_Snoubordist.mp3": "/snowboard/static/media/Landyshi_-_Snoubordist.8fca5a20a60b0cdd67a6.mp3",
@@ -21,11 +21,11 @@
     "static/media/main3.png": "/snowboard/static/media/main3.4fd69fe4bd883fa09077.png",
     "static/media/snowboarding.png": "/snowboard/static/media/snowboarding.36cfc80e6654a045b720.png",
     "index.html": "/snowboard/index.html",
-    "main.19f666b3.css.map": "/snowboard/static/css/main.19f666b3.css.map",
-    "main.59cc24c8.js.map": "/snowboard/static/js/main.59cc24c8.js.map"
+    "main.bd6ca3ee.css.map": "/snowboard/static/css/main.bd6ca3ee.css.map",
+    "main.a62a62a4.js.map": "/snowboard/static/js/main.a62a62a4.js.map"
   },
   "entrypoints": [
-    "static/css/main.19f666b3.css",
-    "static/js/main.59cc24c8.js"
+    "static/css/main.bd6ca3ee.css",
+    "static/js/main.a62a62a4.js"
   ]
 }
