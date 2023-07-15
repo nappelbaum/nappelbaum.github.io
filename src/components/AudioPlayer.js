@@ -13,7 +13,6 @@ const AudioPlayer = () => {
   const [currentSong, setCurrentSong] = useState(songsData[0]);
   const [loadSongs, setLoadSongs] = useState([]);
   const [currentLoadSong, setCurrentLoadSong] = useState({});
-  const [isLoading, setIsLoading] = useState("");
   const [errorload, setErrorload] = useState("");
   const [inputID, setInputID] = useState("");
 
@@ -23,7 +22,6 @@ const AudioPlayer = () => {
 
   const playPause = function () {
     play ? setPlay(false) : setPlay(true);
-    setIsLoading("");
   };
 
   useEffect(() => {
@@ -33,6 +31,9 @@ const AudioPlayer = () => {
   const onPlaying = function () {
     const ct = audio.current.currentTime;
     progress.current.value = ct;
+    progress.current.max = audio.current.duration;
+    volumeRang.current.max = 100;
+    volumeRang.current.value = audio.current.volume * 100;
   };
 
   const skipBackCB = function (data, current, setCurrent) {
@@ -58,40 +59,61 @@ const AudioPlayer = () => {
   };
 
   const showFile = function (input) {
+    window.URL = window.URL || window.webkitURL;
     setErrorload("");
     const files = input.files;
-    const filesArr = Object.values(files);
-    filesArr.length && setIsLoading("Идет загрузка!");
     let loadSongsArr = [];
 
-    filesArr.forEach((file, index) => {
-      if (file.size < 84400000 && file.type === "audio/mpeg") {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-          loadSongsArr.push({
-            id: file.name + String(new Date().getTime()),
-            title: file.name.slice(0, -4),
-            url: reader.result,
-          });
-          loadSongsArr.sort((a, b) => a.title.localeCompare(b.title));
-          inputID === "new"
-            ? setLoadSongs(loadSongsArr)
-            : setLoadSongs([...loadSongs, ...loadSongsArr]);
-          setCurrentLoadSong(loadSongsArr[0]);
-        };
-        reader.onerror = function () {
-          setIsLoading(`Что-то не так с файлом ${file.name}!`);
-        };
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].size < 128400000 && files[i].type === "audio/mpeg") {
+        const src = window.URL.createObjectURL(files[i]);
+        loadSongsArr.push({
+          id: files[i].name + String(new Date().getTime()),
+          title: files[i].name.slice(0, -4),
+          url: src,
+        });
       } else {
-        setErrorload((prev) => prev + file.name + ", ");
+        setErrorload((prev) => prev + files[i].name + ", ");
       }
-    });
+    }
+
+    loadSongsArr.sort((a, b) => a.title.localeCompare(b.title));
+    inputID === "new"
+      ? setLoadSongs(loadSongsArr)
+      : setLoadSongs([...loadSongs, ...loadSongsArr]);
+    setCurrentLoadSong(loadSongsArr[0]);
   };
 
-  useEffect(() => {
-    setIsLoading("");
-  }, [loadSongs]);
+  // const filesArr = Object.values(files);
+  // filesArr.length && setIsLoading("Идет загрузка!");
+  // let loadSongsArr = [];
+
+  // files.forEach((file, index) => {
+  //   if (file.size < 84400000 && file.type === "audio/mpeg") {
+  //     const src = window.URL.createObjectURL(file);
+  //     console.log(src);
+  //     // const reader = new FileReader();
+  //     // reader.readAsDataURL(file);
+  //     // reader.onload = function () {
+  //     //   loadSongsArr.push({
+  //     //     id: file.name + String(new Date().getTime()),
+  //     //     title: file.name.slice(0, -4),
+  //     //     url: reader.result,
+  //     //   });
+  //     //   console.log(loadSongsArr);
+  //     //   loadSongsArr.sort((a, b) => a.title.localeCompare(b.title));
+  //     //   inputID === "new"
+  //     //     ? setLoadSongs(loadSongsArr)
+  //     //     : setLoadSongs([...loadSongs, ...loadSongsArr]);
+  //     //   setCurrentLoadSong(loadSongsArr[0]);
+  //     // };
+  //     // reader.onerror = function () {
+  //     //   setIsLoading(`Что-то не так с файлом ${file.name}!`);
+  //     // };
+  //   } else {
+  //     setErrorload((prev) => prev + file.name + ", ");
+  //   }
+  // });
 
   document.onclick = function () {
     setVolVis(false);
@@ -108,18 +130,13 @@ const AudioPlayer = () => {
             : currentLoadSong.url
         }
         onTimeUpdate={onPlaying}
-        onLoadedMetadata={(e) => {
-          progress.current.max = e.target.duration;
-          progress.current.value = e.target.currentTime;
-          volumeRang.current.max = 100;
-          volumeRang.current.value = e.target.volume * 100;
-        }}
+        onEnded={skipForward}
+        // onLoadedMetadata={(e) => {
+        //   volumeRang.current.max = 100;
+        //   volumeRang.current.value = e.target.volume * 100;
+        // }}
       ></audio>
-      <p>
-        {!loadSongs.length
-          ? currentSong.title
-          : `${isLoading ? isLoading : currentLoadSong.title}`}
-      </p>
+      <p>{!loadSongs.length ? currentSong.title : currentLoadSong.title}</p>
       <div className="music-player__progress-volume">
         <SongListWrap
           songsData={songsData}
@@ -175,10 +192,11 @@ const AudioPlayer = () => {
         setInputID={setInputID}
         setLoadSongs={setLoadSongs}
         setErrorload={setErrorload}
+        setPlay={setPlay}
       />
       {errorload && (
         <div className="errorLoad">
-          Файлы не прошли проверку (вероятно, превышают 80МБ): {errorload}
+          Файлы, не прошедшие проверку (вероятно, превышают 120МБ): {errorload}
         </div>
       )}
     </div>

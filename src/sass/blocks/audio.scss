@@ -93,13 +93,13 @@
 
         &:hover {
           border-radius: 4px;
-          background-color: #d6dbe6;
+          background-color: #d3d9e7;
         }
       }
 
       .list-item--active {
         border-radius: 4px;
-        background-color: #d6dbe6;
+        background-color: #b0bcd8;
       }
     }
 
@@ -143,9 +143,9 @@
 
 #progress::-moz-range-thumb {
   background: #fbfbfc;
-  width: 16px;
-  height: 16px;
-  border: 5px solid #162858;
+  width: 6px;
+  height: 6px;
+  border: 6px solid #162858;
   border-radius: 50%;
   box-shadow: 0 0 3px 0px #162858;
 }
@@ -262,7 +262,7 @@
 .file__btn-clean {
   cursor: pointer;
 
-  &:hover + .file__btn {
+  &:hover {
     background-color: #9094a0;
   }
 }

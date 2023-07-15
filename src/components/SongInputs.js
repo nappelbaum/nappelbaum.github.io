@@ -8,6 +8,7 @@ const SongInputs = ({
   setInputID,
   setLoadSongs,
   setErrorload,
+  setPlay,
 }) => {
   const [clearFileInput, setClearFileInput] = useState(false);
 
@@ -33,6 +34,7 @@ const SongInputs = ({
                 setClearFileInput((prev) => !prev);
                 setLoadSongs([]);
                 setErrorload("");
+                setPlay(true);
               }}
             >
               Очистить список

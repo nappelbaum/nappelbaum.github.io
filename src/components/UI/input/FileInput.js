@@ -6,13 +6,12 @@ const FileInput = ({ children, showFile, id, setInputID, clearFileInput }) => {
   const fileInput = useRef();
 
   useEffect(() => {
-    console.log(fileInput.current.files);
     const file = new File(["text"], "primer.txt", { type: "text/plain" });
     const dt = new DataTransfer();
     dt.items.add(file);
     const file_list = dt.files;
     fileInput.current.files = file_list;
-    console.log(fileInput.current.files);
+    // console.log(fileInput.current.files);
   }, [clearFileInput]);
 
   return (
