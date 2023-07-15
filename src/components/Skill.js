@@ -24,7 +24,7 @@ const Skill = ({ category, text, href, src, skillRight }) => {
             >
               Подробнее о программе
             </NavLink>
-            <a href="/reg">Записаться на занятие</a>
+            <NavLink to={`/reg`}>Записаться на занятие</NavLink>
           </div>
         </div>
       </div>

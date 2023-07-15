@@ -28,6 +28,9 @@ const RegModal = ({
     formData.append("phone", user.phone);
     e.target.reset();
 
+    console.log(idDateTime.date);
+    console.log(idDateTime.time);
+
     axios
       .post("https://bohohome.ru/php/date/updateDate.php", formData)
       .then((res) => {
