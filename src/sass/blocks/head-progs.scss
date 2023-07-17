@@ -100,10 +100,6 @@
   position: relative;
 }
 
-// .cat-select:focus .select__title {
-//   border: 2px solid $prog-accent-col;
-// }
-
 .select__title {
   padding: 8px 20px;
   width: 100%;
@@ -118,10 +114,10 @@
 }
 
 .select__title--focus {
-  border: 2px solid $prog-accent-col;
+  outline: 1px solid $prog-accent-col;
 }
 .select__title:focus {
-  border: 2px solid $prog-accent-col;
+  outline: 1px solid $prog-accent-col;
 }
 
 .select__content {
@@ -188,7 +184,7 @@
 }
 
 .search-input:focus {
-  border: 2px solid $prog-accent-col;
+  outline: 1px solid $prog-accent-col;
 }
 
 .head-progs__caption {

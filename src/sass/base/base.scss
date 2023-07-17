@@ -11,7 +11,7 @@ body {
   background-image: url(./../../img/BackGr/BGfin.jpg);
   background-position: center 0;
   background-repeat: no-repeat;
-  background-size: 100% 437vh;
+  background-size: cover;
 
   @media (max-width: 1025px) {
     background-size: auto 437vh;
