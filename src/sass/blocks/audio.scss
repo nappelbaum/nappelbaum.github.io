@@ -100,6 +100,10 @@
       .list-item--active {
         border-radius: 4px;
         background-color: #b0bcd8;
+
+        &:hover {
+          background-color: #b0bcd8;
+        }
       }
     }
 
@@ -120,6 +124,11 @@
   }
 }
 
+.progress-time {
+  flex: 0 0 60%;
+  width: 100%;
+}
+
 #progress {
   -webkit-appearance: none;
   flex: 0 0 60%;
@@ -128,7 +137,7 @@
   background: #a5a5a5;
   border-radius: 4px;
   cursor: pointer;
-  margin: 20px 0;
+  margin: 20px 0 2px 0;
 }
 
 #progress::-webkit-slider-thumb {
@@ -148,6 +157,15 @@
   border: 6px solid #162858;
   border-radius: 50%;
   box-shadow: 0 0 3px 0px #162858;
+}
+
+.music-player__time-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $text-color-dark;
+  font-size: 14px;
+  opacity: 1;
 }
 
 .music-player__volume {
@@ -170,10 +188,11 @@
       background: #9c9c9c;
       border-radius: 4px;
       cursor: pointer;
+      touch-action: none;
 
       &::-webkit-slider-thumb {
         -webkit-appearance: none;
-        background: #274492;
+        background: #283f7c;
         width: 16px;
         height: 16px;
         border-radius: 50%;
@@ -228,6 +247,11 @@
 
 .file {
   position: relative;
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .file__input {
@@ -256,7 +280,6 @@
   font-weight: 600;
   background-color: #a5a5a5;
   padding: 0 20px;
-  margin-bottom: 20px;
 }
 
 .file__btn-clean {

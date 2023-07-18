@@ -11,7 +11,6 @@ const FileInput = ({ children, showFile, id, setInputID, clearFileInput }) => {
     dt.items.add(file);
     const file_list = dt.files;
     fileInput.current.files = file_list;
-    // console.log(fileInput.current.files);
   }, [clearFileInput]);
 
   return (

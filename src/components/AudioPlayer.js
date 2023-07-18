@@ -15,6 +15,8 @@ const AudioPlayer = () => {
   const [currentLoadSong, setCurrentLoadSong] = useState({});
   const [errorload, setErrorload] = useState("");
   const [inputID, setInputID] = useState("");
+  const [currentTime, setCurrentTime] = useState("");
+  const [durationTime, setDurationTime] = useState("");
 
   useEffect(() => {
     audio.current.volume = 0.15;
@@ -28,9 +30,20 @@ const AudioPlayer = () => {
     !play ? audio.current.play() : audio.current.pause();
   }, [play, currentSong, currentLoadSong]);
 
+  const setMinSec = function (time) {
+    let min = Math.floor(time / 60);
+    if (min < 10) min = "0" + String(min);
+    let sec = Math.trunc(time % 60);
+    if (sec < 10) sec = "0" + String(sec);
+    return min + ":" + sec;
+  };
+
   const onPlaying = function () {
-    const ct = audio.current.currentTime;
-    progress.current.value = ct;
+    setCurrentTime(setMinSec(audio.current.currentTime));
+    setDurationTime(
+      audio.current.duration ? setMinSec(audio.current.duration) : ""
+    );
+    progress.current.value = audio.current.currentTime;
     progress.current.max = audio.current.duration;
     volumeRang.current.max = 100;
     volumeRang.current.value = audio.current.volume * 100;
@@ -62,26 +75,29 @@ const AudioPlayer = () => {
     window.URL = window.URL || window.webkitURL;
     setErrorload("");
     const files = input.files;
-    let loadSongsArr = [];
 
-    for (let i = 0; i < files.length; i++) {
-      if (files[i].size < 128400000 && files[i].type === "audio/mpeg") {
-        const src = window.URL.createObjectURL(files[i]);
-        loadSongsArr.push({
-          id: files[i].name + String(new Date().getTime()),
-          title: files[i].name.slice(0, -4),
-          url: src,
-        });
-      } else {
-        setErrorload((prev) => prev + files[i].name + ", ");
+    if (files.length) {
+      let loadSongsArr = [];
+
+      for (let i = 0; i < files.length; i++) {
+        if (files[i].size < 128400000 && files[i].type === "audio/mpeg") {
+          const src = window.URL.createObjectURL(files[i]);
+          loadSongsArr.push({
+            id: files[i].name + String(new Date().getTime()),
+            title: files[i].name.slice(0, -4),
+            url: src,
+          });
+        } else {
+          setErrorload((prev) => prev + files[i].name + ", ");
+        }
       }
-    }
 
-    loadSongsArr.sort((a, b) => a.title.localeCompare(b.title));
-    inputID === "new"
-      ? setLoadSongs(loadSongsArr)
-      : setLoadSongs([...loadSongs, ...loadSongsArr]);
-    setCurrentLoadSong(loadSongsArr[0]);
+      loadSongsArr.sort((a, b) => a.title.localeCompare(b.title));
+      inputID === "new"
+        ? setLoadSongs(loadSongsArr)
+        : setLoadSongs([...loadSongs, ...loadSongsArr]);
+      setCurrentLoadSong(loadSongsArr[0]);
+    }
   };
 
   // const filesArr = Object.values(files);
@@ -131,9 +147,7 @@ const AudioPlayer = () => {
         }
         onTimeUpdate={onPlaying}
         onEnded={skipForward}
-        // onLoadedMetadata={(e) => {
-        //   volumeRang.current.max = 100;
-        //   volumeRang.current.value = e.target.volume * 100;
+        // onLoadedMetadata={(e) => {volumeRang.current.max = 100; volumeRang.current.value = e.target.volume * 100;
         // }}
       ></audio>
       <p>{!loadSongs.length ? currentSong.title : currentLoadSong.title}</p>
@@ -146,13 +160,19 @@ const AudioPlayer = () => {
           setCurrentSong={setCurrentSong}
           setCurrentLoadSong={setCurrentLoadSong}
         />
-        <input
-          type="range"
-          id="progress"
-          ref={progress}
-          defaultValue="0"
-          onChange={(e) => (audio.current.currentTime = e.target.value)}
-        />
+        <div className="progress-time">
+          <input
+            type="range"
+            id="progress"
+            ref={progress}
+            defaultValue="0"
+            onChange={(e) => (audio.current.currentTime = e.target.value)}
+          />
+          <div className="music-player__time-row">
+            <div className="music-player__time">{currentTime || "00:00"}</div>
+            <div className="music-player__time">{durationTime}</div>
+          </div>
+        </div>
         <div className="music-player__volume">
           <i
             className="fa-solid fa-volume-low fa-xl"

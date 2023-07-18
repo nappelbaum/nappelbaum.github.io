@@ -30,10 +30,7 @@ const HeadProgs = ({
   }, [catCaption, catQuery, dbSkills]);
 
   return (
-    <header
-      ref={ref}
-      className={`head-progs${!active ? "" : " head-progs--margin"}`}
-    >
+    <header ref={ref} className="head-progs">
       <div className="container">
         <div className="head-progs__row">
           <div className="head-progs__img">
