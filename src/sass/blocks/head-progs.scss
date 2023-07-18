@@ -1,15 +1,11 @@
 .head-progs {
-  margin-top: calc(50vh * 0.12674);
+  margin-top: calc(178vh * 0.12674);
   margin-bottom: calc(24vh * 0.12674);
   color: $text-color-dark;
 
   @media (max-width: 600px) {
-    margin-top: calc(25vh * 0.12674);
+    margin-top: calc(153vh * 0.12674);
   }
-}
-
-.head-progs--margin {
-  margin-top: calc(162vh * 0.12674);
 }
 
 .head-progs__row {

@@ -1,3 +1,15 @@
+.skills {
+  margin-top: calc(70vh * 0.12674);
+
+  @media (max-height: 630px) {
+    margin-top: calc(180vh * 0.126744);
+  }
+
+  @media (max-width: 660px) {
+    margin-bottom: 70px;
+  }
+}
+
 .skill {
   display: flex;
   align-items: center;
@@ -16,6 +28,10 @@
     .skill__img {
       display: none;
     }
+  }
+
+  @media (max-width: 660px) {
+    margin-bottom: 30px;
   }
 }
 

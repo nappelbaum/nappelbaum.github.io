@@ -9,11 +9,11 @@ body {
 .body-color-main {
   background-color: #ececec;
   background-image: url(./../../img/BackGr/BGfin.jpg);
-  background-position: center 0;
+  background-position: center -8vh;
   background-repeat: no-repeat;
   background-size: cover;
 
-  @media (max-width: 1025px) {
+  @media (max-width: 660px) {
     background-size: auto 437vh;
   }
 }
