@@ -15,16 +15,27 @@ const Header = ({ changeNavFix }) => {
   }, [entry, inView, active, changeNavFix]);
 
   const divScroll = useRef(null);
+
   const onButtonClick = () => {
-    console.log(window.outerHeight);
-    const divScrollCoords = divScroll.current.getBoundingClientRect();
-    window.scrollTo({
-      top:
+    const animationTime = 300,
+      framesCount = 30,
+      divScrollCoords = divScroll.current.getBoundingClientRect(),
+      coordY =
         divScrollCoords.top +
         window.pageYOffset +
         divScrollCoords.height * (window.outerHeight > 630 ? 0.94 : 1.05),
-      behavior: "smooth",
-    });
+      scrollBy = coordY / framesCount;
+
+    let scroller = setInterval(function () {
+      // если расстояние до низа элемента больше к-ва пикселей для скролла за 1 такт
+      if (coordY - window.pageYOffset > scrollBy) {
+        // то скроллим на к-во пикселей, которое соответствует одному такту
+        window.scrollBy(0, scrollBy);
+      } else {
+        window.scrollTo(0, coordY);
+        clearInterval(scroller);
+      }
+    }, animationTime / framesCount);
   };
 
   return (
