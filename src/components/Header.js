@@ -2,8 +2,11 @@ import React, { useRef, useEffect, useState } from "react";
 import "./../sass/main.scss";
 import { useInView } from "react-intersection-observer";
 import MyButton from "./UI/buttons/MyButton";
+import { useDispatch } from "react-redux";
+import { changeNavFix } from "../store/navColorSlice";
 
-const Header = ({ changeNavFix }) => {
+const Header = () => {
+  const dispatch = useDispatch();
   const [active, setActive] = useState(false);
   const { ref, inView, entry } = useInView({
     threshold: 0.1,
@@ -11,8 +14,8 @@ const Header = ({ changeNavFix }) => {
 
   useEffect(() => {
     !entry ? setActive(false) : setActive(!inView);
-    changeNavFix(active);
-  }, [entry, inView, active, changeNavFix]);
+    dispatch(changeNavFix({ state: active }));
+  }, [entry, inView, active]);
 
   const divScroll = useRef(null);
 
@@ -27,8 +30,11 @@ const Header = ({ changeNavFix }) => {
       scrollBy = coordY / framesCount;
 
     let scroller = setInterval(function () {
-      // если расстояние до низа элемента больше к-ва пикселей для скролла за 1 такт
-      if (coordY - window.pageYOffset > scrollBy) {
+      // если расстояние до низа элемента больше к-ва пикселей для скролла за 1 такт и дно страницы не достигнуто
+      if (
+        coordY - window.pageYOffset > scrollBy &&
+        window.innerHeight + window.pageYOffset < document.body.offsetHeight
+      ) {
         // то скроллим на к-во пикселей, которое соответствует одному такту
         window.scrollBy(0, scrollBy);
       } else {

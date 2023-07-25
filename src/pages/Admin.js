@@ -8,12 +8,16 @@ import PostService from "../API/PostService";
 import AddEditService from "../API/AddEditService";
 import { useAuth } from "../hooks/useAuth";
 import { useCookies } from "react-cookie";
+import { useDispatch } from "react-redux";
+import { changeNavDarkColor } from "../store/navColorSlice";
 
-const Admin = ({ dbSkills, changeNavDarkColor }) => {
+const Admin = ({ dbSkills }) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    changeNavDarkColor(true);
+    dispatch(changeNavDarkColor({ state: true }));
     changeBody(false);
-  }, [changeNavDarkColor]);
+  }, []);
 
   const [addCat, setAddCat] = useState("");
   const [searchParams] = useSearchParams();

@@ -1,13 +1,18 @@
 import React, { useEffect } from "react";
 import changeBody from "../func/changeBody";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { changeNavDarkColor } from "../store/navColorSlice";
+import { changeNavFix } from "../store/navColorSlice";
 
-const Reg = ({ changeNavFix, changeNavDarkColor }) => {
+const Reg = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    changeNavFix(false);
-    changeNavDarkColor(true);
+    dispatch(changeNavFix({ state: false }));
+    dispatch(changeNavDarkColor({ state: true }));
     changeBody(false);
-  }, [changeNavFix, changeNavDarkColor]);
+  }, []);
 
   return (
     <div className="reg">

@@ -9,13 +9,18 @@ import RegModal from "../components/RegModal";
 import Loader from "../components/UI/loader/Loader";
 import useMyFetching from "../hooks/useMyFetching";
 import RegActive from "../components/RegActive";
+import { useDispatch } from "react-redux";
+import { changeNavDarkColor } from "../store/navColorSlice";
+import { changeNavFix } from "../store/navColorSlice";
 
-const Registr = ({ changeNavFix, changeNavDarkColor }) => {
+const Registr = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    changeNavFix(false);
-    changeNavDarkColor(true);
+    dispatch(changeNavFix({ state: false }));
+    dispatch(changeNavDarkColor({ state: true }));
     changeBody(false);
-  }, [changeNavFix, changeNavDarkColor]);
+  }, []);
 
   const navigate = useNavigate();
   const { user, signout } = useAuth();

@@ -4,8 +4,13 @@ import changeBody from "../func/changeBody";
 import { useFetching } from "../hooks/useFetching";
 import PostService from "../API/PostService";
 import Loader from "../components/UI/loader/Loader";
+import { useDispatch } from "react-redux";
+import { changeNavDarkColor } from "../store/navColorSlice";
+import { changeNavFix } from "../store/navColorSlice";
 
-const Program = ({ changeNavFix, changeNavDarkColor }) => {
+const Program = () => {
+  const dispatch = useDispatch();
+  const addDarkNavColor = () => dispatch(changeNavDarkColor({ state: true }));
   const [choiseProg, setChoiseProg] = useState({});
   const [progText, setProgText] = useState([]);
   const [searchParams] = useSearchParams();
@@ -19,10 +24,10 @@ const Program = ({ changeNavFix, changeNavDarkColor }) => {
   }, []);
 
   useEffect(() => {
-    changeNavFix(false);
-    changeNavDarkColor(true);
+    dispatch(changeNavFix({ state: false }));
+    addDarkNavColor();
     changeBody(false);
-  }, [changeNavFix, changeNavDarkColor]);
+  }, []);
 
   useMemo(() => {
     if (choiseProg.text) setProgText(choiseProg.text.split("\n"));

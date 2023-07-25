@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-
 import MyInput from "./UI/input/MyInput";
 import { useInView } from "react-intersection-observer";
 import SelectStyle from "./UI/select/SelectStyle";
+import { useDispatch } from "react-redux";
+import { changeNavFix } from "../store/navColorSlice";
 
 const HeadProgs = ({
   dbSkills,
@@ -10,8 +11,8 @@ const HeadProgs = ({
   selectCatQuery,
   searchQuery,
   inputSearchQuery,
-  changeNavFix,
 }) => {
+  const dispatch = useDispatch();
   const [active, setActive] = useState(false);
   const { ref, inView, entry } = useInView({
     threshold: 0,
@@ -19,8 +20,8 @@ const HeadProgs = ({
 
   useEffect(() => {
     !entry ? setActive(false) : setActive(!inView);
-    changeNavFix(active);
-  }, [entry, inView, active, changeNavFix]);
+    dispatch(changeNavFix({ state: active }));
+  }, [entry, inView, active]);
 
   const [catCaption, setCatCaption] = useState("");
   useEffect(() => {

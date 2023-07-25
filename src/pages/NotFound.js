@@ -12,7 +12,7 @@ const NotFound = () => {
         color: "#000",
         fontSize: "20px",
         fontWeight: 700,
-        margin: "40px auto",
+        margin: "240px auto",
       }}
     >
       Страницы не существует!

@@ -7,8 +7,12 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import Loader from "../components/UI/loader/Loader";
 import PostService from "../API/PostService";
 import { useFetching } from "../hooks/useFetching";
+import { useDispatch } from "react-redux";
+import { changeNavDarkColor } from "../store/navColorSlice";
 
-const Programs = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
+const Programs = ({ dbSkills }) => {
+  const dispatch = useDispatch();
+  const addDarkNavColor = () => dispatch(changeNavDarkColor({ state: true }));
   const [cutProgs, setCutProgs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchParams] = useSearchParams();
@@ -34,9 +38,9 @@ const Programs = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
   };
 
   useEffect(() => {
-    changeNavDarkColor(true);
+    addDarkNavColor();
     changeBody(false);
-  }, [changeNavDarkColor]);
+  }, []);
 
   useEffect(() => {
     if (searchParams.get("cat")) navigate("/progs", { replace: true });
@@ -62,7 +66,6 @@ const Programs = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
         selectCatQuery={selectCatQuery}
         searchQuery={searchQuery}
         inputSearchQuery={inputSearchQuery}
-        changeNavFix={changeNavFix}
       />
       {progsError && (
         <h1 style={{ color: "#000" }}>

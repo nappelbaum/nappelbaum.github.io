@@ -4,12 +4,16 @@ import NavPhone from "./UI/refs/NavPhone";
 import NavBurger from "./UI/buttons/NavBurger";
 import NavList from "./UI/refs/NavList";
 import NavLogo from "./UI/refs/NavLogo";
+import { useSelector } from "react-redux";
 
-const Nav = ({ navFix, navDarkColor }) => {
+const Nav = () => {
   const [burgerStyles, setBurgerStyles] = useState(false);
   const changeBurgerStyle = function (style) {
     setBurgerStyles(style);
   };
+
+  const navDarkColor = useSelector((state) => state.navColor.navDarkColor);
+  const navFix = useSelector((state) => state.navColor.navFix);
 
   return (
     <nav

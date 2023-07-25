@@ -2,36 +2,21 @@ import React, { useEffect } from "react";
 import Header from "../components/Header";
 import Skills from "../components/Skills";
 import changeBody from "../func/changeBody";
+import { useDispatch } from "react-redux";
+import { changeNavDarkColor } from "../store/navColorSlice";
 
-// import programs from "./data/programs.json";
-// import axios from "axios";
+function Main({ dbSkills }) {
+  const dispatch = useDispatch();
+  const addDarkNavColor = () => dispatch(changeNavDarkColor({ state: false }));
 
-// console.log(programs);
-
-// function clickHadler() {
-//   fetch("https://bohohome.ru/php/getshop.php", {
-//     method: "POST",
-//     header: {
-//       "Content-Type": "application/x-www-form-urlencoded",
-//     },
-//     body: JSON.stringify({ action: 1 }),
-//   })
-//     .then((res) => res.json())
-//     .then((res) => {
-//       console.log(res);
-//     });
-// }
-// clickHadler();
-
-function Main({ dbSkills, changeNavFix, changeNavDarkColor }) {
   useEffect(() => {
-    changeNavDarkColor(false);
     changeBody(true);
-  }, [changeNavDarkColor]);
+    addDarkNavColor();
+  }, []);
 
   return (
     <div>
-      <Header changeNavFix={changeNavFix} />
+      <Header />
       <Skills skills={dbSkills} />
     </div>
   );

@@ -2,13 +2,19 @@ import React, { useEffect } from "react";
 import changeBody from "../func/changeBody";
 import { Link } from "react-router-dom";
 import AudioPlayer from "../components/AudioPlayer";
+import { useDispatch } from "react-redux";
+import { changeNavDarkColor } from "../store/navColorSlice";
+import { changeNavFix } from "../store/navColorSlice";
 
-const About = ({ changeNavFix, changeNavDarkColor }) => {
+const About = () => {
+  const dispatch = useDispatch();
+  const addDarkNavColor = () => dispatch(changeNavDarkColor({ state: true }));
+
   useEffect(() => {
-    changeNavDarkColor(true);
+    addDarkNavColor();
+    dispatch(changeNavFix({ state: false }));
     changeBody(false);
-    changeNavFix(false);
-  }, [changeNavDarkColor, changeNavFix]);
+  }, []);
 
   return (
     <div className="about">

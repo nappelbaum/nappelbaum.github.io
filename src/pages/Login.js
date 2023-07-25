@@ -7,8 +7,11 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import LoginForm from "../components/UI/forms/LoginForm";
 import Loader from "../components/UI/loader/Loader";
+import { useDispatch } from "react-redux";
+import { changeNavDarkColor } from "../store/navColorSlice";
 
-const Login = ({ changeNavDarkColor }) => {
+const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const { signin } = useAuth();
@@ -19,9 +22,9 @@ const Login = ({ changeNavDarkColor }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    changeNavDarkColor(true);
+    dispatch(changeNavDarkColor({ state: true }));
     changeBody(false);
-  }, [changeNavDarkColor]);
+  }, []);
 
   const fromPage = location.state?.from || "/";
   const isAdmin = fromPage.slice(0, 6);

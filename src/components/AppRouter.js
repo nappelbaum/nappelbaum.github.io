@@ -13,75 +13,22 @@ import { AuthProvider } from "../hoc/AuthProvider";
 import Registr from "../pages/Registr";
 import { CookiesProvider } from "react-cookie";
 
-const AppRouter = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
+const AppRouter = ({ dbSkills }) => {
   return (
     <CookiesProvider>
       <AuthProvider>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Main
-                dbSkills={dbSkills}
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <About
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
-          <Route
-            path="/progs"
-            element={
-              <Programs
-                dbSkills={dbSkills}
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
-          <Route
-            path="/prog"
-            element={
-              <Program
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
-          <Route
-            path="/prices"
-            element={
-              <About
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
-          <Route
-            path="/reg"
-            element={
-              <Reg
-                changeNavFix={changeNavFix}
-                changeNavDarkColor={changeNavDarkColor}
-              />
-            }
-          />
+          <Route path="/" element={<Main dbSkills={dbSkills} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/progs" element={<Programs dbSkills={dbSkills} />} />
+          <Route path="/prog" element={<Program />} />
+          <Route path="/prices" element={<About />} />
+          <Route path="/reg" element={<Reg />} />
           <Route
             path="/registr"
             element={
               <RequireAuth>
-                <Registr
-                  changeNavFix={changeNavFix}
-                  changeNavDarkColor={changeNavDarkColor}
-                />
+                <Registr />
               </RequireAuth>
             }
           />
@@ -90,17 +37,11 @@ const AppRouter = ({ dbSkills, changeNavFix, changeNavDarkColor }) => {
             path="/admin"
             element={
               <RequireAuth>
-                <Admin
-                  dbSkills={dbSkills}
-                  changeNavDarkColor={changeNavDarkColor}
-                />
+                <Admin dbSkills={dbSkills} />
               </RequireAuth>
             }
           />
-          <Route
-            path="/login"
-            element={<Login changeNavDarkColor={changeNavDarkColor} />}
-          />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </AuthProvider>
     </CookiesProvider>
