@@ -27,6 +27,9 @@ const Programs = ({ dbSkills }) => {
 
   useEffect(() => {
     fetchPrograms();
+    addDarkNavColor();
+    changeBody(false);
+    window.scrollTo({ top: 0 });
   }, []);
 
   const selectCatQuery = function (select) {
@@ -36,11 +39,6 @@ const Programs = ({ dbSkills }) => {
   const inputSearchQuery = function (input) {
     setSearchQuery(input);
   };
-
-  useEffect(() => {
-    addDarkNavColor();
-    changeBody(false);
-  }, []);
 
   useEffect(() => {
     if (searchParams.get("cat")) navigate("/progs", { replace: true });
