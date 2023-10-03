@@ -48,20 +48,17 @@ const Article = ({
           <Link
             className="article__title"
             to={`/prog?id=${program.id}`}
-            onClick={() => window.scrollTo({ top: 0 })}
             dangerouslySetInnerHTML={articleTitle}
           ></Link>
           <Link
             className="article__caption"
             to={`/prog?id=${program.id}`}
-            onClick={() => window.scrollTo({ top: 0 })}
             dangerouslySetInnerHTML={articleText}
           ></Link>
         </div>
         <Link
           to={`/prog?id=${program.id}`}
           className="button articles__btn articles__btn--hide"
-          onClick={() => window.scrollTo({ top: 0 })}
         >
           Открыть
         </Link>
