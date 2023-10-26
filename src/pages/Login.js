@@ -29,7 +29,7 @@ const Login = () => {
   const fromPage = location.state?.from || "/";
   const isAdmin = fromPage.slice(0, 6);
   const d = new Date();
-  d.setTime(d.getTime() + 3 * 60 * 60 * 1000);
+  d.setTime(d.getTime() + 168 * 60 * 60 * 1000);
 
   const changeCookie = (id) => {
     setCookie("snowid", id, {
