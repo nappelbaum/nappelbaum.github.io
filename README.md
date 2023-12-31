@@ -1,3 +1,3 @@
 #### This site on GitHub Pages:
 
-[Демо](https://nappelbaum.github.io/snowboard)
+[Demo](https://nappelbaum.github.io/snowboard)
